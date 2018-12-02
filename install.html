@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="utf-8">
+    <title>پلاگین پرداخت آنلاین همیار دیتالایف انجین فارسی</title>
+    <link rel="stylesheet" href="https://dlefa.ir/extras/theme/dlefa.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  </head>
+  <body>
+    <div class="main">
+      <div class="logo">
+        <a href="https://dlefa.ir/"></a>
+      </div>
+      <nav class="menu">
+        <ul>
+          <li><a href="https://dlefa.ir/" target="_blank" title="همیار دیتالایف انجین فارسی">
+            <i class="ion-monitor"></i>
+          </a></li>
+          <li><a href="https://dleshop.ir/" target="_blank" title="فروشگاه همیار دیتالایف انجین فارسی">
+            <i class="ion-android-cart"></i>
+          </a></li>
+          <li><a href="https://instagram.com/dlefa.ir" target="_blank" title="اینستاگرام همیار دیتالایف انجین فارسی">
+            <i class="ion-social-instagram"></i>
+          </a></li>
+          <li><a href="https://t.me/dlefair" target="_blank" title="تلگرام همیار دیتالایف انجین فارسی">
+            <i class="ion-paper-airplane"></i>
+          </a></li>
+        </ul>
+      </nav>
+      <div class="text">
+        <div class="besmelah">
+          <span>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</span>
+        </div>
+        <div class="title"> <h1>پلاگین پرداخت آنلاین همیار دیتالایف انجین فارسی</h1></div>
+		<p>با تشکر از اعتماد شما به تیم همیار دیتالایف انجین فارسی</p>
+		<h2><i class="ion-android-arrow-back"></i> مرحله اول</h2>
+        <p>وارد پنل مدیریت سایت خود شده و به بخش مدیریت پلاگین ها مراجعه نمایید. آپلود پلاگین را کلیک نمایید. در فرم باز شده فایل dlefa-pay.xml موجود در پوشه ی دانلود شده را انتخاب نموده و آپلود نمایید.
+		</p>
+		<br>
+        <h2><i class="ion-android-arrow-back"></i> مرحله دوم</h2>
+        <p>
+		محتویات پوشه ی upload موجود را بر روی root سرور خود آپلود نمایید.
+		</p>
+		<br>
+        <h2><i class="ion-android-arrow-back"></i> مرحله سوم</h2>
+        <p>فایل htaccess. موجود در root سرور خود را ویرایش نموده و کد زیر را بعد از RewriteEngine On وارد نمایید:<p>
+		<p class="code"># Pay
+RewriteRule ^pay(/?)+$ index.php?do=pay$1 [L]</p>
+		<p>همچنین فایل های داخل templates/THEME را به قالب خود منتقل کرده و براساس نیاز ویرایش نمایید.</p>
+		<p>از طریق آدرس YourSite/pay می توانید فرم حمایت مالی را فراخوانی نمایید.</p>
+		<br>
+		<p>در صورت بروز مشکل از طریق لینک <a href="https://dlefa.ir/66" target="_blank">پشتیبانی محصول</a> تماس حاصل فرمایید.</p>
+
+      </div>
+    </div>
+  </body>
+</html>
