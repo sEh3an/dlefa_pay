@@ -9,7 +9,7 @@
 -----------------------------------------------------
  Copyright (c) 2018, All rights reserved.
 =====================================================
-*/
+ */
 
 defined("DATALIFEENGINE") || exit();
 
@@ -69,6 +69,11 @@ function Pay(){
 					window.location.replace(result.url);
 					window.location.href=result.url;
 				},3000);
+			}else if( bankid == "payir" ){
+				setTimeout(function(){
+					window.location.replace(result.url);
+					window.location.href=result.url;
+				},3000);
 			}
 		}else{
 			HideLoading();
@@ -82,26 +87,25 @@ HTML;
 $tpl->copy_template = "<!--DLEFA Pay Plugin-->" . $JS . $tpl->copy_template . "<!--DLEFA Pay Plugin-->";
 $tpl->set('{onclick}', 'onclick="Pay(); return false;"');
 $tpl->set('{pay}', "<input type=\"submit\" name=\"pay\" class=\"btn btn-big\" value=\"پرداخت\" onclick=\"Pay(); return false;\">");
-if ($is_logged){
+if ($is_logged) {
 	$tpl->set('{input-name}', "<input type=\"text\" class=\"form-control width-200 ltr\" name=\"name\" id=\"name\" value=\"{$member_id['name']}\" readonly>");
-    $xfs = xfieldsdataload( $member_id['xfields'] );
-    $tpl->set('{input-mob}', "<input type=\"text\" class=\"form-control width-200 ltr\" name=\"mob\" id=\"mob\" value=\"{$xfs['mob']}\">");
-}else{
+	$xfs = xfieldsdataload($member_id['xfields']);
+	$tpl->set('{input-mob}', "<input type=\"text\" class=\"form-control width-200 ltr\" name=\"mob\" id=\"mob\" value=\"{$xfs['mob']}\">");
+} else {
 	$tpl->set('{input-name}', "<input type=\"text\" class=\"form-control width-200\" name=\"name\" id=\"name\">");
-    $tpl->set('{input-mob}', "<input type=\"text\" class=\"form-control width-200 ltr\" name=\"mob\" id=\"mob\">");
+	$tpl->set('{input-mob}', "<input type=\"text\" class=\"form-control width-200 ltr\" name=\"mob\" id=\"mob\">");
 }
 $tpl->set('{input-amount}', "<input type=\"text\" class=\"form-control width-200 ltr\" name=\"pay_amount\" id=\"pay_amount\">");
 
-if ($pay_config['mellat_on'] && $pay_config['zarinpal_on']){
-	$tpl->set('{bank-list}', "<select class=\"uniform\" name=\"pay_bankid\" id=\"pay_bankid\"><option value=\"zarinpal\">درگاه زرین پال</option><option value=\"mellat\">درگاه ملت</option></select>");
-}else{
-	if ($pay_config['mellat_on']){
-		$tpl->set('{bank-list}', "<select class=\"uniform\" name=\"pay_bankid\" id=\"pay_bankid\"><option value=\"mellat\">درگاه ملت</option></select>");
-	}elseif ($pay_config['zarinpal_on']){
-		$tpl->set('{bank-list}', "<select class=\"uniform\" name=\"pay_bankid\" id=\"pay_bankid\"><option value=\"zarinpal\">درگاه زرین پال</option></select>");
-	}else{
-		$tpl->set('{bank-list}', "درگاهی توسط مدیر سایت تعریف نشده است!");
-	}
+if ($pay_config['mellat_on'] || $pay_config['zarinpal_on'] || $pay_config['payir_on']) {
+	$banks = "<select class=\"uniform\" name=\"pay_bankid\" id=\"pay_bankid\">";
+	if ($pay_config['mellat_on']) $banks .= "<option value=\"mellat\">درگاه ملت</option>";
+	if ($pay_config['zarinpal_on']) $banks .= "<option value=\"zarinpal\">درگاه زرین پال</option>";
+	if ($pay_config['payir_on']) $banks .= "<option value=\"payir\">درگاه pay.ir </option>";
+	$banks .= "</select>";
+	$tpl->set('{bank-list}', $banks);
+} else {
+	$tpl->set('{bank-list}', "درگاهی توسط مدیر سایت تعریف نشده است!");
 }
 $tpl->set('{input-desc}', "<textarea name=\"message\" id=\"message\" rows=\"8\" class=\"wide\"></textarea>");
 $tpl->compile('content');
