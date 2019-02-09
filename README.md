@@ -3,7 +3,7 @@ A plugin for having a Form to Pay with ZarinPal & Mellat
 
 ![DLE](https://img.shields.io/badge/DLE-13.x-green.svg?style=flat-square "DLE Version")
 ![version](https://img.shields.io/badge/version-1.0-red.svg?style=flat-square "Version")
-[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/dle-modules/DLE-BlockPro/blob/master/LICENSE)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/sEh3an/dlefa_pay/blob/master/LICENSE)
 
 <div dir="rtl">
 پلاگین پرداخت آنلاین همیار دیتالایف انجین پلاگینی جهت ایجاد فرم پرداخت هماهنگ با درگاه های بانک ملت و زرین پال
