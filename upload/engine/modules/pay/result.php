@@ -85,7 +85,7 @@ switch ($bankid) {
 					if ($result->status == 1) {
 						$msg = "پرداخت موفق";
 						$refid = $result->transId;
-						$db->query("UPDATE " . PREFIX . "_pay_invoices SET `status`='{$msg}' WHERE id='{$invoice['id']}'");
+						$db->query("UPDATE " . PREFIX . "_pay_invoices SET `status`='{$msg}',`refid`='{$refid}' WHERE id='{$invoice['id']}'");
 						$tpl->set('[success]', "");
 						$tpl->set('[/success]', "");
 					} else {
